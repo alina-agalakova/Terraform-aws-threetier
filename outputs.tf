@@ -13,3 +13,5 @@ output "route_table_id" {
 output "allocation_id" {
   value = aws_eip.Projecteip.id
 }
+
+#example
