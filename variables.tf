@@ -46,6 +46,12 @@ variable "private_subnet3" {
   default     = "10.0.103.0/24"
 }
 
+variable "availability_zone" {
+  description = "availability zone in region"
+  type        = string
+  default     = "us-east-1a"
+}
+
 variable "availability_zones" {
   type        = list(string)
   description = "Availability Zones"
