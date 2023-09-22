@@ -49,7 +49,7 @@ variable "private_subnet3" {
 variable "availability_zone" {
   description = "availability zone in region"
   type        = string
-  default     = "us-east-1b"
+  default     = "us-east-1a"
 }
 
 variable "availability_zones" {
@@ -81,4 +81,16 @@ variable "instance_username" {
   type        = string
   default     = "ec2-user"
 }
+
+variable "domain_name" {
+  description = "provide domain name"
+  type = string
+  default = "proaws.com"
+} 
+
+variable "zone_id" {
+  description = "provide zone id"
+  type = string
+  default = "Z07181082BXI0TVMQMHS2"
+} 
 
