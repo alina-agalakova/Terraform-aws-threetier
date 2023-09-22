@@ -14,4 +14,6 @@ output "allocation_id" {
   value = aws_eip.Projecteip.id
 }
 
-#example
+output "instance_public_ip" {
+value = aws_instance.wordpress.public_ip
+}

@@ -49,7 +49,7 @@ variable "private_subnet3" {
 variable "availability_zone" {
   description = "availability zone in region"
   type        = string
-  default     = "us-east-1a"
+  default     = "us-east-1b"
 }
 
 variable "availability_zones" {
@@ -63,3 +63,22 @@ variable "sec_group_name" {
   type        = string
   default     = "my_sg"
 }
+
+variable "path_to_public_key" {
+  description = "public key location on terraform instance"
+  type        = string
+  default     = "/home/ec2-user/.ssh/id_rsa.pub"
+}
+
+variable "path_to_private_key" {
+  description = "private key location on terraform instance"
+  type        = string
+  default     = "/home/ec2-user/.ssh/id_rsa"
+}
+
+variable "instance_username" {
+  description = "user to ssh to remote host"
+  type        = string
+  default     = "ec2-user"
+}
+
