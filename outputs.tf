@@ -21,3 +21,8 @@ output "instance_public_ip" {
 output "aws_alb_dns_name" {
   value = aws_alb.application-lb.dns_name
 }
+
+output "file_system_id" {
+  value = aws_efs_file_system.project_efs.id
+}
+
