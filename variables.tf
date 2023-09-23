@@ -84,13 +84,13 @@ variable "instance_username" {
 
 variable "domain_name" {
   description = "provide domain name"
-  type = string
-  default = "proaws.com"
-} 
+  type        = string
+  default     = "proaws.com"
+}
 
 variable "zone_id" {
   description = "provide zone id"
-  type = string
-  default = "Z07181082BXI0TVMQMHS2"
-} 
+  type        = string
+  default     = "Z07181082BXI0TVMQMHS2"
+}
 

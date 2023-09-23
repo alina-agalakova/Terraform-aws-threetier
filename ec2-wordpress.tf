@@ -38,8 +38,7 @@ resource "aws_instance" "wordpress" {
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
       "sudo cp -r wordpress/* /var/www/html/",
-      "sudo chown -R apache:apache /var/www/html/",
-      "sudo mv /var/www/html/wp-config-sample.php /var/www/html/wp-config.php"
+      "sudo chown -R apache:apache /var/www/html/"
     ]
   }
 }
