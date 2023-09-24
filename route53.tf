@@ -5,7 +5,3 @@ resource "aws_route53_record" "wordpress" {
   ttl     = "300"
   records = [aws_alb.application-lb.dns_name]
 }
-variable "domain" {
-  type = string
-
-}

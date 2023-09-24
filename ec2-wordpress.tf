@@ -22,7 +22,6 @@ resource "aws_instance" "wordpress" {
     "Name" : "wordpress_for_ami"
   }
 
-
   connection {
     type        = "ssh"
     user        = var.instance_username
