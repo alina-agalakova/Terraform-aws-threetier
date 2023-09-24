@@ -11,12 +11,12 @@ data "aws_ami" "amazon-2" {
 
 # Create VM 
 resource "aws_instance" "wordpress" {
-  availability_zone      = var.availability_zone
-  ami                    = data.aws_ami.amazon-2.id
-  instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.my_sg.id]
-  key_name               = aws_key_pair.project_keypair.key_name
-  subnet_id              = aws_subnet.public1.id
+  ami                         = data.aws_ami.amazon-2.id
+  instance_type               = "t2.micro"
+  vpc_security_group_ids      = [aws_security_group.my_sg.id]
+  key_name                    = aws_key_pair.project_keypair.key_name
+  subnet_id                   = aws_subnet.public1.id
+  associate_public_ip_address = true
 
   tags = {
     "Name" : "wordpress_for_ami"
@@ -31,13 +31,17 @@ resource "aws_instance" "wordpress" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo yum install -y httpd mariadb-server",
-      "sudo wget https://wordpress.org/latest.tar.gz",
-      "sudo tar -xzf latest.tar.gz",
+      "sudo yum update -y",
+      "sudo yum install -y httpd php php-mysqlnd",
       "sudo systemctl start httpd",
       "sudo systemctl enable httpd",
-      "sudo cp -r wordpress/* /var/www/html/",
-      "sudo chown -R apache:apache /var/www/html/"
+      "sudo amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2",
+      "cd /var/www/html",
+      " sudo wget https://wordpress.org/latest.tar.gz",
+      "sudo tar -xzf latest.tar.gz",
+      " sudo cp -R wordpress/* /var/www/html/",
+      " sudo chown -R apache:apache /var/www/html/",
+      " sudo systemctl restart httpd"
     ]
   }
 }
