@@ -94,3 +94,26 @@ variable "zone_id" {
   default     = "Z07181082BXI0TVMQMHS2"
 }
 
+variable "database_name" {
+  description = "name of RDS database"
+  type        = string
+  default     = "my_database"
+}
+
+variable "cluster_identifier" {
+  description = "cluster identifier of RDS database"
+  type        = string
+  default     = "database-1"
+}
+
+variable "master_username" {
+  description = "master username"
+  type        = string
+  default     = "team1"
+}
+
+variable "master_password" {
+  description = "master password"
+  type        = string
+  default     = "WooHooWeDidIt!1"
+}
