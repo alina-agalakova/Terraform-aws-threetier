@@ -30,3 +30,21 @@ resource "aws_rds_cluster" "db_instance" {
   skip_final_snapshot    = true
   db_subnet_group_name   = aws_db_subnet_group.project_db_subnet_group.id
 }
+
+resource "aws_rds_cluster_instance" "writer_instance" {
+  count                = 1
+  identifier           = "writer-instance"
+  cluster_identifier   = aws_rds_cluster.db_instance.id
+  instance_class       = "db.t3.medium"
+  engine               = "aurora-mysql"
+  db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
+}
+
+resource "aws_rds_cluster_instance" "reader_instances" {
+  count                = 3
+  identifier           = "reader-${count.index + 1}"
+  cluster_identifier   = aws_rds_cluster.db_instance.id
+  instance_class       = "db.t3.medium"
+  engine               = "aurora-mysql"
+  db_subnet_group_name = aws_db_subnet_group.project_db_subnet_group.id
+}
