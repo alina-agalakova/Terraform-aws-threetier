@@ -1,4 +1,13 @@
 # tf_project
+# Usage Instructions
+```module "three-tier"```
+
+
+
+
+
+
+
 # Deploy a three tier architure in AWS using Terraform
 # What is Terraform?
 HashiCorp Terraform is an infrastructure as code (IaC) software tool that allows DevOps teams to automate infrastructure provisioning using reusable, shareable, human-readable configuration files. The tool can automate infrastructure provisioning in both on-premises and cloud environments.

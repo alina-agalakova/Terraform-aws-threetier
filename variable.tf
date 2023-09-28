@@ -117,3 +117,9 @@ variable "master_password" {
   type        = string
   default     = "WooHooWeDidIt!1"
 }
+
+variable "tags" {
+  description = "please provide a tags information"
+  type        = map(any)
+  default     = {}
+}

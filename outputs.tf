@@ -30,3 +30,8 @@ output "database_endpoint" {
   value = aws_rds_cluster.db_instance.endpoint
 }
 
+output "database_writer_endpoint" {
+  value = aws_rds_cluster_instance.writer_instance[0].endpoint
+}
+
+
